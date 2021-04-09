@@ -75,16 +75,14 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *brightnessup[] = { "/usr/bin/xbacklight", "-inc", "10" };
 static const char *brightnessdown[] = { "/usr/bin/xbacklight", "-dec", "10" };
 
 static Key keys[] = {
-	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  {.v = downvol } },
+	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioMute,           spawn,  {.v = mutevol } },
-	{ 0,                           	XF86XK_AudioRaiseVolume,    spawn,  {.v = upvol   } },
+	{ 0,                           	XF86XK_AudioRaiseVolume,    spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessDown,   spawn,  {.v = brightnessdown } },
 	{ 0,                            XF86XK_MonBrightnessUp,     spawn,  {.v = brightnessup } },
 	/* modifier                     key        function        argument */
