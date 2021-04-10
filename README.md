@@ -2,7 +2,7 @@
 
 This is my DWM rice. 
 
-![screenshot](/screenshots/screen_1.jpg)
+![screenshot](./screenshots/screen_1.jpg)
 
 ## Installation
 
