@@ -30,9 +30,9 @@ static const char *colors[][3]      = {
 	[SchemeSel]       = { col_gray1,  col_green,  col_green  },
 	[SchemeStatus]    = { col_yellow, col_gray1,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_gray1,  col_green,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
-  [SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-  [SchemeInfoSel]   = { col_gray3,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
-  [SchemeInfoNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { col_gray3,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -87,7 +87,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] 				= "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] 	= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
-static const char *browsercmd[] = { "icecat", NULL};
+static const char *browsercmd[] = { "firefox", NULL};
 static const char *termcmd[] 		= { "st", NULL };
 
 static const char *dualmon[] 		= { "dualmonitor" };
