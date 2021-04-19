@@ -85,17 +85,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] 				= "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 	= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
+static const char *dmenucmd[] 		= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
-static const char *browsercmd[] = { "firefox", NULL};
+static const char *browsercmd[] 	= { "firefox", NULL};
 static const char *termcmd[] 		= { "st", NULL };
-
 static const char *dualmon[] 		= { "dualmonitor" };
-static const char *mutevol[] 		= { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
-	{ 0,                           	XF86XK_AudioMute,           spawn,  {.v = mutevol } },
+	{ 0,                           	XF86XK_AudioMute,           spawn,  SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioRaiseVolume,    spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessDown,   spawn,  SHCMD("xbacklight -dec 10; kill -54 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessUp,     spawn,  SHCMD("xbacklight -inc 10; kill -54 $(pidof dwmblocks)") },
