@@ -2,7 +2,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Liberation mono:size=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "MesloLGS Nerd Font:size=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Liberation mono:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#2e3440";
 static const char col_gray2[]       = "#3b4252";
@@ -26,12 +26,12 @@ static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*                    fg          bg         border   */
-	[SchemeNorm]      = { col_gray3,  col_gray1,  col_orange },
+	[SchemeNorm]      = { col_gray3,  col_gray1,  col_gray1 },
 	[SchemeSel]       = { col_gray1,  col_green,  col_green  },
-	[SchemeStatus]    = { col_yellow, col_gray1,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeStatus]    = { col_gray1,  col_green,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_gray1,  col_green,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]   = { col_gray3,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { col_green,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3]      = {
@@ -55,8 +55,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "IceCat",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Thunderbird",  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
