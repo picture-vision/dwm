@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Liberation mono:size=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Liberation mono:size=12:antialias=true:autohint=true","FiraCode NF:size=16" };
 static const char dmenufont[]       = "Liberation mono:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#2e3440";
 static const char col_gray2[]       = "#3b4252";
