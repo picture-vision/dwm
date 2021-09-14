@@ -95,7 +95,7 @@ static const char *dualmon[] 		= { "dualmonitor" };
 
 static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
-	{ 0,                           	XF86XK_AudioMute,           spawn,  SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0,                           	XF86XK_AudioMute,           spawn,  SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioRaiseVolume,    spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessDown,   spawn,  SHCMD("xbacklight -dec 10; kill -54 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessUp,     spawn,  SHCMD("xbacklight -inc 10; kill -54 $(pidof dwmblocks)") },
