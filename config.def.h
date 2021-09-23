@@ -91,8 +91,7 @@ static const char *dmenucmd[] 		= { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *browsercmd[] 	= { "firefox", NULL};
 static const char *termcmd[] 		= { "st", NULL };
-static const char *dualmon[] 		= { "dualmonitor" };
-static const char *externalmon[] 		= { "externalmonitor" };
+static const char *setmon[] 		= { "setdisplay" };
 
 static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
@@ -105,8 +104,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_passcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY, 											XK_e, 		 spawn, 				 {.v = externalmon }},
-	{ MODKEY, 											XK_m, 		 spawn, 				 {.v = dualmon }},
+	{ MODKEY, 						XK_m,      spawn,          {.v = setmon }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
