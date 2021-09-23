@@ -57,7 +57,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Thunderbird",  NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "libreoffice",  NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
@@ -92,6 +92,7 @@ static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dme
 static const char *browsercmd[] 	= { "firefox", NULL};
 static const char *termcmd[] 		= { "st", NULL };
 static const char *dualmon[] 		= { "dualmonitor" };
+static const char *externalmon[] 		= { "externalmonitor" };
 
 static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
@@ -104,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_passcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY, 											XK_e, 		 spawn, 				 {.v = externalmon }},
 	{ MODKEY, 											XK_m, 		 spawn, 				 {.v = dualmon }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
