@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 	/*                    fg          bg         border   */
 	[SchemeNorm]      = { col_gray3,  col_gray1,  col_gray1 },
 	[SchemeSel]       = { col_gray1,  col_green,  col_green  },
-	[SchemeStatus]    = { col_gray1,  col_green,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeStatus]    = { col_green,  col_gray1,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_gray1,  col_green,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
 	[SchemeInfoSel]   = { col_green,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
