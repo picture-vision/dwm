@@ -2,7 +2,6 @@
 modes="Laptop\nDual_2560x1440\nDual_1920x1080\nExtern_2560x1440\nExtern_1920x1080"
 
 result=$(echo $modes | dmenu -i)
-echo $result
 case "$result" in
     Dual_*) 
         res=`echo $result | sed -e 's/Dual_//g'` 
@@ -19,4 +18,7 @@ case "$result" in
         xrandr --output DP1 --off
         ;;
 esac
+
+# Restore Wallpaper
+[ -f ~/.fehbg ] && ~/.fehbg &
 
