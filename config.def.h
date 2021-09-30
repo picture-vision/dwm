@@ -28,7 +28,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*                    fg          bg         border   */
 	[SchemeNorm]      = { col_gray3,  col_gray1,  col_gray1 },
-	[SchemeSel]       = { col_gray1,  col_green,  col_green  },
+	[SchemeSel]       = { col_gray1,  col_green,  col_yellow  },
 	[SchemeStatus]    = { col_green,  col_gray1,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_gray1,  col_green,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
@@ -54,11 +54,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Thunderbird",  NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "libreoffice",  NULL,       NULL,       1 << 4,       0,           -1 },
+	/* class            instance    title       tags mask     isfloating   monitor */
+	{ "Postman",        NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Thunderbird",    NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Firefox",        NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "libreoffice",    NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
 /* layout(s) */
