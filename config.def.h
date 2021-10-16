@@ -87,7 +87,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] 				= "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 		= { "runprogramm", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
+static const char *runprogramcmd[] 		= { "runprogramm", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
+static const char *dmenucmd[] 		= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *browsercmd[] 	= { "firefox", NULL};
 static const char *termcmd[] 		= { "st", NULL };
@@ -101,6 +102,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,     spawn,  SHCMD("xbacklight -inc 10; kill -54 $(pidof dwmblocks)") },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = runprogramcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_passcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },

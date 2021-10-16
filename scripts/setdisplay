@@ -6,16 +6,16 @@ case "$result" in
     Dual_*) 
         res=`echo $result | sed -e 's/Dual_//g'` 
         xrandr --output eDP1 --auto
-        xrandr --output DP1 --mode $res
+        xrandr --output DP3 --mode $res
         ;;
     Extern_*)  
         res=`echo $result | sed -e 's/Extern_//g'` 
         xrandr --output eDP1 --off
-        xrandr --output DP1 --mode $res
+        xrandr --output DP3 --mode $res
         ;;
     *)  
         xrandr --output eDP1 --auto
-        xrandr --output DP1 --off
+        xrandr --output DP3 --off
         ;;
 esac
 
