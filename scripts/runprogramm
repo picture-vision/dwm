@@ -1,5 +1,5 @@
 #!/bin/sh
-programs="firefox\ngtk3-icon-browser\nlibreoffice\nlxappearance\npcmanfm\npostman\nqutebrowser\nremmina"
+programs="firefox\ngtk3-icon-browser\nlibreoffice\nlxappearance\nomnidb-app\npcmanfm\npostman\nqutebrowser\nremmina\nsqlitebrowser"
 
 result=$(echo $programs | dmenu -i)
 

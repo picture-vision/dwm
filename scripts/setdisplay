@@ -6,7 +6,7 @@ case "$result" in
     Dual_*) 
         res=`echo $result | sed -e 's/Dual_//g'` 
         xrandr --output eDP1 --auto
-        xrandr --output DP1 --mode $res
+        xrandr --output DP1 --right-of eDP1 --mode $res
         ;;
     Extern_*)  
         res=`echo $result | sed -e 's/Extern_//g'` 
