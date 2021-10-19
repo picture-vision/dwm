@@ -1,21 +1,22 @@
 #!/bin/sh
 modes="Laptop\nDual_2560x1440\nDual_1920x1080\nExtern_2560x1440\nExtern_1920x1080"
 
+EXT_DISPLAY=$(xrandr | awk '/^DP[0-9] connected/ {print $1}')
 result=$(echo $modes | dmenu -i)
 case "$result" in
     Dual_*) 
         res=`echo $result | sed -e 's/Dual_//g'` 
         xrandr --output eDP1 --auto
-        xrandr --output DP1 --right-of eDP1 --mode $res
+        xrandr --output $EXT_DISPLAY --right-of eDP1 --mode $res
         ;;
     Extern_*)  
         res=`echo $result | sed -e 's/Extern_//g'` 
         xrandr --output eDP1 --off
-        xrandr --output DP1 --mode $res
+        xrandr --output $EXT_DISPLAY --mode $res
         ;;
     *)  
         xrandr --output eDP1 --auto
-        xrandr --output DP1 --off
+        xrandr --output $EXT_DISPLAY --off
         ;;
 esac
 
