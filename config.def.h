@@ -23,17 +23,19 @@ static const char col_gray4[]       = "#e5e9f0";
 static const char col_green[]       = "#a3be8c";
 static const char col_yellow[]      = "#ebcb8b";
 static const char col_orange[]      = "#c08770";
+static const char col_blue[]        = "#5e81ac";
+static const char col_lightblue[]   = "#81a1c1";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*                    fg          bg         border   */
-	[SchemeNorm]      = { col_gray3,  col_gray1,  col_gray1 },
-	[SchemeSel]       = { col_gray1,  col_green,  col_yellow  },
-	[SchemeStatus]    = { col_green,  col_gray1,  col_green  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]   = { col_gray1,  col_green,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]   = { col_green,  col_gray1,  col_green  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3,  col_gray1,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm]      = { col_gray3,  col_gray1,  col_gray2 },
+	[SchemeSel]       = { col_gray1,  col_blue,  col_lightblue  },
+	[SchemeStatus]    = { col_lightblue,  col_gray2,  col_lightblue  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]   = { col_gray2,  col_blue,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray3,  col_gray2,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { col_blue,  col_gray2,  col_blue  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray3,  col_gray2,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
