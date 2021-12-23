@@ -2,7 +2,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 20;       /* vert inner gap between windows */
@@ -11,8 +11,8 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 30;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int vertpad            = 10;       /* vertical padding of bar */
+static const int user_bh            = 28;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int vertpad            = 6;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Liberation mono:size=12:antialias=true:autohint=true","FiraCode NF:size=16" };
 static const char dmenufont[]       = "Liberation mono:size=12:antialias=true:autohint=true";
@@ -34,7 +34,7 @@ static const char *colors[][3]      = {
 	[SchemeStatus]    = { col_lightblue,  col_gray2,  col_lightblue  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_gray2,  col_blue,  col_gray1  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3,  col_gray2,  col_gray3  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]   = { col_blue,  col_gray2,  col_blue  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { col_lightblue,  col_gray2,  col_blue  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm]  = { col_gray3,  col_gray2,  col_gray3  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3]      = {
