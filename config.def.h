@@ -32,8 +32,8 @@ static const char *colors[][3]      = {
 	[SchemeNorm]      = { col_gray3,    col_gray1,  col_blue },     // normal Window
 	[SchemeSel]       = { col_gray1,    col_blue,   col_orange  },  // selected Window
 	[SchemeStatus]    = { col_gray2,    col_orange, col_gray1  },   // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]   = { col_gray2,    col_green,  col_gray1  },   // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3,    col_green,  col_gray1  },   // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]   = { col_green,    col_gray2,  col_gray1  },   // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray2,    col_green,  col_gray1  },   // Tagbar left unselected {text,background,not used but cannot be empty}
 	[SchemeInfoSel]   = { col_gray2,    col_blue,   col_gray1  },    // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm]  = { col_blue,     col_gray2,  col_gray1  },   // infobar middle  unselected {text,background,not used but cannot be empty}
 };
