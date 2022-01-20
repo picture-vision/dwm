@@ -14,8 +14,8 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 28;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad            = 6;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Meslo LG S Nerd Font:size=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Meslo LG S Nerd Font:size=12:antialias=true:autohint=true";
+static const char *fonts[]          = { "Meslo LG S Nerd Font:size=11:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Meslo LG S Nerd Font:size=11:antialias=true:autohint=true";
 static const char col_gray1[]       = "#2e3440";
 static const char col_gray2[]       = "#3b4252";
 static const char col_gray3[]       = "#d8dee9";
