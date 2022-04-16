@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -56,8 +57,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+  { "Postman",        NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "libreoffice",    NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "mpv",            NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Thunderbird",    NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Firefox",        NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -85,19 +89,36 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2] 				= "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *runprogramcmd[] 		= { "runprogramm", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
 static const char *dmenucmd[] 		= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenu_passcmd[] 	= { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray1, "-x", "10", "-y", "10", "-z", "1900", NULL };
+static const char *browsercmd[] 	= { "firefox", NULL};
+static const char *termcmd[] 		= { "st", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *setmon[] 		= { "setdisplay" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+  { 0,                           	XF86XK_AudioLowerVolume,    spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                           	XF86XK_AudioMute,           spawn,  SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ 0,                           	XF86XK_AudioRaiseVolume,    spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                            XF86XK_MonBrightnessDown,   spawn,  SHCMD("xbacklight -dec 10; kill -54 $(pidof dwmblocks)") },
+	{ 0,                            XF86XK_MonBrightnessUp,     spawn,  SHCMD("xbacklight -inc 10; kill -54 $(pidof dwmblocks)") },
+	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = runprogramcmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_passcmd } },
+	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	// { MODKEY,                       XK_s,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY, 						          XK_m,      spawn,          {.v = setmon }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
@@ -120,7 +141,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
