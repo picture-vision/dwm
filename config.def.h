@@ -112,7 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_passcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	// { MODKEY,                       XK_s,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_s,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY, 						          XK_m,      spawn,          {.v = setmon }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
