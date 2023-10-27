@@ -1,0 +1,33 @@
+#!/bin/sh
+modes='Laptop\nMirror\nDual_2560x1440\nDual_1920x1080\nExtern_2560x1440\nExtern_1920x1080'
+
+INT_DISPLAY='eDP-1'
+
+EXT_DISPLAY=$(xrandr | awk '/^DP-(.+) connected/ {print $1}')
+
+result=$(echo ${modes} | dmenu -i)
+case "$result" in
+    Mirror)
+        xrandr --output $INT_DISPLAY --auto
+        xrandr --output $EXT_DISPLAY --same-as $INT_DISPLAY
+        ;;
+    Dual_*) 
+        res=`echo $result | sed -e 's/Dual_//g'` 
+        echo  $res $EXT_DISPLAY $INT_DISPLAY
+        xrandr --output $INT_DISPLAY --auto
+        xrandr --output $EXT_DISPLAY --right-of $INT_DISPLAY --mode $res
+        ;;
+    Extern_*)  
+        res=`echo $result | sed -e 's/Extern_//g'` 
+        xrandr --output $INT_DISPLAY --off
+        xrandr --output $EXT_DISPLAY --mode $res
+        ;;
+    *)  
+        xrandr --output $INT_DISPLAY --auto
+        xrandr --output $EXT_DISPLAY --off
+        ;;
+esac
+
+# Restore Wallpaper
+[ -f ~/.fehbg ] && ~/.fehbg &
+

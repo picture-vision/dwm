@@ -1,0 +1,6 @@
+#!/bin/sh
+programs="firefox\ngtk3-icon-browser\nlibreoffice\nlxappearance\nomnidb-app\npcmanfm\npixel5\npostman\nqutebrowser\nremmina\nsqlitebrowser"
+
+result=$(echo $programs | dmenu -i)
+
+$result
