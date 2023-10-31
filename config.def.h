@@ -14,50 +14,63 @@ static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
 static const int showbar = 1; /* 0 means no bar */
 static const int topbar = 1;  /* 0 means bottom bar */
-static const int user_bh = 0; /* 0 means that dwm will calculate bar height, >=
+static const int vertpad            = 10;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
+static const int user_bh = 30; /* 0 means that dwm will calculate bar height, >=
                                  1 means dwm will user_bh as bar height */
-static const char *fonts[] = {"CaskaydiaCove Nerd Font:size=10"};
+static const char *fonts[] = {"CaskaydiaCove Nerd Font:size=12"};
 static const char dmenufont[] = "monospace:size=10";
 static const char col_gray1[] = "#222200";
 static const char col_gray2[] = "#4444ff";
 static const char col_gray3[] = "#bbbb00";
 static const char col_gray4[] = "#ee0000";
 static const char col_cyan[] = "#005577";
-static const char col_bg[] = "#3b4252";
-static const char col_fg[] = "#eceff4";
-static const unsigned int baralpha = 0xd0;
+
+static const char col_p1[] = "#2E3440";
+static const char col_p2[] = "#3B4252";
+static const char col_p3[] = "#434C5E";
+static const char col_p4[] = "#4C566A";
+
+static const char col_s1[] = "#D8DEE9";
+static const char col_s2[] = "#E5E9F0";
+static const char col_s3[] = "#ECEFF4";
+
+static const char col_a1[] = "#BF616A";
+static const char col_a2[] = "#D08770";
+static const char col_a3[] = "#EBCB8B";
+static const char col_a4[] = "#A3BE8C";
+static const char col_a5[] = "#B48EAD";
+
+static const char col_f1[] = "#8FBCBB";
+static const char col_f2[] = "#88C0D0";
+static const char col_f3[] = "#81A1C1";
+static const char col_f4[] = "#5E81AC";
+
+static const unsigned int baralpha = 210; // 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3] = {
-    /*               fg         bg         border   */
-[SchemeNorm] = {col_fg, col_bg, col_gray2},
-[SchemeSel] = {col_bg, col_fg, col_cyan},
-[SchemeStatus] = {col_fg, col_bg,
-                      "#000000"}, // Statusbar right {text,background,not used
-                                  // but cannot be empty}
-[SchemeTagsSel] = {col_bg, col_fg,
-                       "#000000"}, // Tagbar left selected {text,background,not
-                                   // used but cannot be empty}
-[SchemeTagsNorm] =
-        {col_fg, col_bg,
-         "#000000"}, // Tagbar left unselected {text,background,not used but
-                     // cannot be empty}
-[SchemeInfoSel] =
-        {col_bg, col_fg,
-         "#000000"}, // infobar middle  selected {text,background,not used but
-                     // cannot be empty}
-[SchemeInfoNorm] =
-        {col_fg, col_bg,
-         "#000000"}, // infobar middle  unselected {text,background,not used but
-                     // cannot be empty}
+  /*                  fg        bg        border   */
+  [SchemeNorm] =      {col_p1,  col_p1,   col_p1},
+  [SchemeSel] =       {col_p4,  col_p1,   col_p1},
+  [SchemeStatus] =    {col_s1,  col_p1,   col_p1}, // Statusbar right {text,background,not used but cannot be empty}
+  [SchemeTagsSel] =   {col_a4,  col_p3,   col_p1}, // Tagbar left selected {text,background,not used but cannot be empty}
+  [SchemeTagsNorm] =  {col_p4,  col_p1,   col_p1}, // Tagbar left unselected {text,background,not used but cannot be empty}
+  [SchemeInfoSel] =   {col_f3,  col_p1,   col_p1}, // infobar middle  selected {text,background,not used but cannot be empty}
+  [SchemeInfoNorm] =  {col_a3,  col_p1,   col_p1}, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3] = {
     /*               fg      bg        border*/
     [SchemeNorm] = {OPAQUE, baralpha, borderalpha},
     [SchemeSel] = {OPAQUE, baralpha, borderalpha},
+    [SchemeStatus] = {OPAQUE, baralpha, borderalpha},
+    [SchemeTagsSel] = {OPAQUE, baralpha, borderalpha},
+    [SchemeTagsNorm] = {OPAQUE, baralpha, borderalpha},
+    [SchemeInfoSel] = {OPAQUE, baralpha, borderalpha},
+    [SchemeInfoNorm] = {OPAQUE, baralpha, borderalpha},
 };
 
 /* tagging */
-static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = {"󰌽", "", "", "", "󰈙", "", "", "󰛮", ""};
 
 static const Rule rules[] = {
     /* xprop(1):
