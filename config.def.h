@@ -19,7 +19,7 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh = 30; /* 0 means that dwm will calculate bar height, >=
                                  1 means dwm will user_bh as bar height */
 static const char *fonts[] = {"CaskaydiaCove Nerd Font:size=12"};
-static const char dmenufont[] = "monospace:size=10";
+static const char dmenufont[] = "CaskaydiaCove Nerd Font:size=12";
 static const char col_gray1[] = "#222200";
 static const char col_gray2[] = "#4444ff";
 static const char col_gray3[] = "#bbbb00";
@@ -79,6 +79,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
+    {"Thorium-browser", NULL, NULL, 1 << 5, 0, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
 
@@ -116,9 +117,7 @@ static const Layout layouts[] = {
   }
 
 /* commands */
-static const char *dmenucmd[] = {"dmenu_run", "-fn", dmenufont, "-nb",
-                                 col_gray1,   "-nf", col_gray3, "-sb",
-                                 col_cyan,    "-sf", col_gray4, NULL};
+static const char *dmenucmd[] = {"dmenu_run", "-fn", dmenufont, "-nb", "#2e3440",   "-sb", "#4c566a", "-sf", "#a3be8c", "-x", "1000", "-y", "300", "-z", "1440", NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,
