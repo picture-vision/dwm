@@ -97,9 +97,11 @@ static const int lockfullscreen =
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
+    {"|M|", centeredmaster}, 
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
-    {"[M]", monocle}, {"|M|", centeredmaster}, {">M>", centeredfloatingmaster},
+    {"[M]", monocle}, 
+    {">M>", centeredfloatingmaster},
 };
 
 /* key definitions */
@@ -160,12 +162,12 @@ static const Key keys[] = {
     {MODKEY | Mod1Mask | ShiftMask, XK_0, defaultgaps, {0}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
-    {MODKEY, XK_f, setlayout, {.v = &layouts[1]}},
-    {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
-    {MODKEY, XK_u, setlayout, {.v = &layouts[3]}},
+    {MODKEY, XK_c, setlayout, {.v = &layouts[0]}},
+    {MODKEY, XK_t, setlayout, {.v = &layouts[1]}},
+    {MODKEY, XK_f, setlayout, {.v = &layouts[2]}},
+    {MODKEY, XK_m, setlayout, {.v = &layouts[3]}},
     // {MODKEY, XK_o, setlayout, {.v = &layouts[4]}},
-    // {MODKEY, XK_space, setlayout, {0}},
+    {MODKEY | ShiftMask, XK_space, setlayout, {0}},
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
     {MODKEY, XK_Down, moveresize, {.v = "0x 25y 0w 0h"}},
     {MODKEY, XK_Up, moveresize, {.v = "0x -25y 0w 0h"}},
