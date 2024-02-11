@@ -125,7 +125,7 @@ static const char *passotpcmd[] = {"dmenu_pass_otp", "-fn", dmenufont, "-nb", "#
 static const char *termcmd[] = {"st", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,
-                                      "-g", "120x34", NULL};
+                                      "-g", "160x54", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
