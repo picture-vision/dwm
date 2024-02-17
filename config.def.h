@@ -126,6 +126,7 @@ static const char *termcmd[] = {"st", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,
                                       "-g", "160x54", NULL};
+static const char* screenshotcmd[] = {"screenshot", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -133,6 +134,7 @@ static const Key keys[] = {
     {MODKEY, XK_p, spawn, {.v = passcmd}},
     {MODKEY, XK_o, spawn, {.v = passotpcmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {0, XK_Print, spawn, {.v = screenshotcmd}},
     {MODKEY, XK_grave, togglescratch, {.v = scratchpadcmd}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY | ShiftMask, XK_j, rotatestack, {.i = +1}},
