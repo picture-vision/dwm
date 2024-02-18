@@ -79,7 +79,8 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
-    {"Thorium-browser", NULL, NULL, 1 << 5, 0, -1},
+    {"Virt-viewer", NULL, NULL, 1 << 4, 1, -1},
+    {"Chromium", NULL, NULL, 1 << 5, 0, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
 
@@ -135,7 +136,7 @@ static const Key keys[] = {
     {MODKEY, XK_o, spawn, {.v = passotpcmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {0, XK_Print, spawn, {.v = screenshotcmd}},
-    {MODKEY, XK_grave, togglescratch, {.v = scratchpadcmd}},
+    {0, XK_Insert, togglescratch, {.v = scratchpadcmd}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY | ShiftMask, XK_j, rotatestack, {.i = +1}},
     {MODKEY | ShiftMask, XK_k, rotatestack, {.i = -1}},
