@@ -1,5 +1,0 @@
-#!/bin/sh
-result=$(emulator -list-avds | dmenu -i)
-
-emulator -avd $result
-
