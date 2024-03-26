@@ -16,24 +16,36 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh            = 32;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:size=13" };
 static const char dmenufont[]       = "CaskaydiaCove Nerd Font:size=13";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray1[]       = "#24273A";
+static const char col_gray2[]       = "#f0c6c6";
+static const char col_gray3[]       = "#CAD3F5";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#8aadf4";
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_cyan, col_gray1,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
+	[SchemeSel]  = { col_cyan, col_gray1,  col_gray1  },
+	[SchemeStatus]  = { col_gray2, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_cyan, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
 	[SchemeInfoSel]  = { col_cyan, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
+static const unsigned int alphas[][3]      = {
+    /*               fg      bg        border*/
+    [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+    [SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+    [SchemeStatus] = { OPAQUE, baralpha, borderalpha },
+    [SchemeTagsSel]  = { OPAQUE, baralpha, borderalpha },
+    [SchemeTagsNorm] = { OPAQUE, baralpha, borderalpha },
+    [SchemeInfoSel]  = { OPAQUE, baralpha, borderalpha },
+    [SchemeInfoNorm]  = { OPAQUE, baralpha, borderalpha },
+};
 
 /* tagging */
-static const char *tags[] = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " };
+static const char *tags[] = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " };
 
 static const Rule rules[] = {
 	/* xprop(1):
