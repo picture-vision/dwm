@@ -9,29 +9,29 @@ static const unsigned int gappiv    = 10;       /* vert inner gap between window
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh            = 32;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:size=13" };
 static const char dmenufont[]       = "CaskaydiaCove Nerd Font:size=13";
-static const char col_gray1[]       = "#24273A";
-static const char col_gray2[]       = "#f0c6c6";
-static const char col_gray3[]       = "#CAD3F5";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#8aadf4";
+static const char col_background[]       = "#24273A";
+static const char col_secondary[]       = "#f0c6c6";
+static const char col_primary_light[]       = "#CAD3F5";
+static const char col_selected[]       = "#eeeeee";
+static const char col_primary[]        = "#8aadf4";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-	[SchemeSel]  = { col_cyan, col_gray1,  col_gray1  },
-	[SchemeStatus]  = { col_gray2, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_cyan, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { col_cyan, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm] = { col_primary_light, col_background, col_background },
+	[SchemeSel]  = { col_primary, col_background,  col_background  },
+	[SchemeStatus]  = { col_secondary, col_background,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_primary, col_background,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_primary_light, col_background,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_primary, col_background,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_primary_light, col_background,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 static const unsigned int alphas[][3]      = {
     /*               fg      bg        border*/
@@ -85,9 +85,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-x", "1000", "-y", "300", "-z", "1440", NULL };
-static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-x", "1000", "-y", "300", "-z", "1440", NULL };
-static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-x", "1000", "-y", "300", "-z", "1440", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
+static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
+static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x50", NULL };
