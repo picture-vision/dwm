@@ -45,18 +45,20 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
+static const char *tags[] = { " ", " ", " ", "󰂫 ", "󰬱 ", "󰊯 ", "󰯊 ", " ", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class	instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
-	{ "Gimp",	NULL,       NULL,       0,            1,           -1,        50,50,500,500,        5 },
-	{ "Chromium",	NULL,       NULL,       1 << 5,       0,           -1,        50,50,500,500,        5 },
-	{ "MUSIK",	NULL,       NULL,       1 << 7,       1,           -1,        50,50,1200,700,       5 },
-	{ "Firefox",	NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,        5 },
+	/* class	                instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
+	{ "Gimp",	                NULL,       NULL,       1 << 3,       1,           -1,        10,52,1920,1200,      5 },
+  { "looking-glass-client", NULL,       NULL,       1 << 4,       1,           -1,        10,52,2867,1200,      0 },
+	{ "Chromium",	            NULL,       NULL,       1 << 5,       0,           -1,        10,52,500,500,        5 },
+	{ "SPOTIFY",	            NULL,       NULL,       1 << 7,       1,           -1,        10,52,1200,700,       5 },
+	{ "AUDIOVIS",	            NULL,       NULL,       1 << 7,       1,           -1,        2230,52,1200,700,     5 },
+	{ "Firefox",	            NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
 };
 
 /* layout(s) */
@@ -167,9 +169,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { 0,                            XF86XK_AudioPrev,         spawn,     SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")},
-  { 0,                            XF86XK_AudioPlay,         spawn,     SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")},
-  { 0,                            XF86XK_AudioNext,         spawn,     SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")},
+  { 0,                            XF86XK_AudioPrev,         spawn,     SHCMD("playerctl previous; kill -45 $(pidof dwmblocks)")},
+  { 0,                            XF86XK_AudioPlay,         spawn,     SHCMD("playerctl play-pause; kill -45 $(pidof dwmblocks)")},
+  { 0,                            XF86XK_AudioNext,         spawn,     SHCMD("playerctl next; kill -45 $(pidof dwmblocks)")},
   { 0,                            XF86XK_AudioMute,         spawn,     SHCMD("pamixer --toggle-mute; kill -44 $(pidof dwmblocks)")},
   { 0,                            XF86XK_AudioLowerVolume,  spawn,     SHCMD("pamixer --decrease 5; kill -44 $(pidof dwmblocks)")},
   { 0,                            XF86XK_AudioRaiseVolume,  spawn,     SHCMD("pamixer --increase 5; kill -44 $(pidof dwmblocks)")},
