@@ -59,7 +59,7 @@ static const Rule rules[] = {
 	{ "Chromium",			NULL,       NULL,       1 << 5,       0,           -1,        10,52,500,500,        5 },
 	{ "SPOTIFY",	            	NULL,       NULL,       1 << 7,       1,           -1,        10,52,1200,700,       5 },
 	{ "AUDIOVIS",	            	NULL,       NULL,       1 << 7,       1,           -1,        2230,52,1200,700,     5 },
-	{ "Firefox",	            	NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
+	{ "firefox-esr",	            	NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
 };
 
 /* layout(s) */
@@ -88,12 +88,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
-static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
-static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "10", "-y", "52", "-z", "440", NULL };
+static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "10", "-y", "52", "-z", "440", NULL };
+static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "10", "-y", "52", "-z", "440", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x50", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80", NULL };
 static const char *screenshotcmd[]  = { "screenshot", NULL };
 
 #include "movestack.c"
@@ -176,6 +176,8 @@ static const Key keys[] = {
   { 0,                            XF86XK_AudioMute,         spawn,     SHCMD("pamixer --toggle-mute; kill -44 $(pidof dwmblocks)")},
   { 0,                            XF86XK_AudioLowerVolume,  spawn,     SHCMD("pamixer --decrease 5; kill -44 $(pidof dwmblocks)")},
   { 0,                            XF86XK_AudioRaiseVolume,  spawn,     SHCMD("pamixer --increase 5; kill -44 $(pidof dwmblocks)")},
+  { 0,                            XF86XK_MonBrightnessUp,      spawn,     SHCMD("brightnessctl s +5%; kill -46 $(pidof dwmblocks)")},
+  { 0,                            XF86XK_MonBrightnessDown,  spawn,     SHCMD("brightnessctl s 5%-; kill -46 $(pidof dwmblocks)")},
 };
 
 /* button definitions */
