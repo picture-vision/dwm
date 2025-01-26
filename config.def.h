@@ -16,10 +16,10 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh            = 32;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:size=12" };
 static const char dmenufont[]       = "CaskaydiaCove Nerd Font:size=12";
-static const char col_background[]       = "#282828";
+static const char col_background[]       = "#2e3440";
 static const char col_secondary[]       = "#f0c6c6";
-static const char col_primary_light[]       = "#e2d3ba";
-static const char col_selected[]       = "#e2d3ba";
+static const char col_primary_light[]       = "#a3be8c";
+static const char col_selected[]       = "#ebcb8b";
 static const char col_primary[]        = "#d8a657";
 static const unsigned int baralpha = 0xd0;
 // static const unsigned int baralpha = OPAQUE;
@@ -59,7 +59,7 @@ static const Rule rules[] = {
 	{ "Chromium",			NULL,       NULL,       1 << 5,       0,           -1,        10,52,500,500,        5 },
 	{ "SPOTIFY",	            	NULL,       NULL,       1 << 7,       1,           -1,        10,52,1200,700,       5 },
 	{ "AUDIOVIS",	            	NULL,       NULL,       1 << 7,       1,           -1,        2230,52,1200,700,     5 },
-	{ "Firefox",	            	NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
+	{ "firefox-esr",            	NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
 };
 
 /* layout(s) */
@@ -102,9 +102,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenupasscmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenupotpcmd } },
-	{ MODKEY,			XK_Return, spawn,          {.v = termcmd } },
-	{ 0,                            XK_Insert, togglescratch,  {.v = scratchpadcmd } },
-	{ 0,                            XK_Print,  spawn,	   {.v = screenshotcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_s,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_s,  spawn,	   {.v = screenshotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
