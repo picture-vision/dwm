@@ -17,7 +17,7 @@ static const int user_bh            = 32;        /* 0 means that dwm will calcul
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:size=12" };
 static const char dmenufont[]       = "CaskaydiaCove Nerd Font:size=12";
 static const char col_background[]       = "#2e3440";
-static const char col_secondary[]       = "#f0c6c6";
+static const char col_secondary[]       = "#434c5e";
 static const char col_primary_light[]       = "#a3be8c";
 static const char col_selected[]       = "#ebcb8b";
 static const char col_primary[]        = "#d8a657";
@@ -88,7 +88,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_secondary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
 static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
 static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
 static const char *termcmd[]  = { "st", NULL };
