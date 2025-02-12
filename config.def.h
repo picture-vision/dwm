@@ -56,10 +56,11 @@ static const Rule rules[] = {
 	/* class	                instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
 	{ "Gimp",	                NULL,       NULL,       1 << 3,       1,           -1,        10,52,1920,1200,      5 },
 	{ "looking-glass-client",	NULL,       NULL,       1 << 4,       1,           -1,        10,52,3420,1378,      0 },
-	{ "Chromium",			NULL,       NULL,       1 << 5,       0,           -1,        10,52,500,500,        5 },
+	{ "Chromium",			NULL,       NULL,       1 << 5,       0,           -1,        10,52,1920,1378,        5 },
+	{ "VMCHROME",			NULL,       NULL,       1 << 5,       1,           -1,        10,52,1920,1378,        5 },
 	{ "SPOTIFY",	            	NULL,       NULL,       1 << 7,       1,           -1,        10,52,1200,700,       5 },
 	{ "AUDIOVIS",	            	NULL,       NULL,       1 << 7,       1,           -1,        2230,52,1200,700,     5 },
-	{ "firefox-esr",	            	NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
+	{ "firefox-esr",	        NULL,       NULL,       1 << 8,       0,           -1,        10,52,500,500,        5 },
 };
 
 /* layout(s) */
