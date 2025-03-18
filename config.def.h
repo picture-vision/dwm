@@ -27,7 +27,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_primary_light, col_background, col_background },
-	[SchemeSel]  = { col_primary, col_background,  col_primary  },
+	[SchemeSel]  = { col_primary, col_background,  col_background },
 	[SchemeStatus]  = { col_primary_light, col_background,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_primary, col_background,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_primary_light, col_background,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
@@ -94,7 +94,7 @@ static const char *dmenupasscmd[] = { "dmenu_pass", "-m", dmenumon, "-fn", dmenu
 static const char *dmenupotpcmd[] = { "dmenu_pass_otp", "-m", dmenumon, "-fn", dmenufont, "-nb", col_background, "-nf", col_primary_light, "-sb", col_primary, "-sf", col_selected, "-x", "1000", "-y", "300", "-z", "1440", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "140x50", NULL };
 static const char *screenshotcmd[]  = { "screenshot", NULL };
 
 #include "movestack.c"
